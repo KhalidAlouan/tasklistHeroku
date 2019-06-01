@@ -6,8 +6,7 @@
   </head>
  <?php
   //conexion en PDO
-      $database = parse_url(getenv("postgres://qcwvmeaixkator:cdce814c2752abb523e36ef2d9dfbba13b20d7ab8663983284695695f6127a1f@ec2-79-125-126-205.eu-west-1.compute.amazonaws.com:5432/d5c85ouabdufcp
-"));
+      $database = parse_url(getenv("DATABASE_URL"));
       $db = new PDO("pgsql:" . sprintf(
         "host=%s;port=%s;user=%s;password=%s;dbname=%s",
         $database["host"],
