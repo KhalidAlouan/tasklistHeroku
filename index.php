@@ -2,10 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>My Task List</title>
+    <title>Task List Khalid</title>
   </head>
  <?php
-  //conexion en PDO
+ 
       $database = parse_url(getenv("DATABASE_URL"));
       $db = new PDO("pgsql:" . sprintf(
         "host=%s;port=%s;user=%s;password=%s;dbname=%s",
@@ -17,7 +17,7 @@
       ));
 
 
- //echo "GET: ".var_dump($_GET);
+
  if(isset( $_GET['delete'] )){
     $task = $_GET['delete'];
     $query = $db->prepare("DELETE FROM mytask WHERE id = ".$task.";");
@@ -36,12 +36,12 @@
     $query = $db->prepare("INSERT INTO mytask (nombre,estado) VALUES ('".$nom."',0)");
     $query->execute();
   }
-   //mostrar todo
+  
     $result2 = $db->query("SELECT * FROM mytask where estado = 0");
     $result1 = $db->query("SELECT * FROM mytask where estado = 1");
   ?>
   <body>
-    <h1>TASKAS EDITYON</h1>
+    <h1>TASK LIST</h1>
     
     <?php
     echo "
