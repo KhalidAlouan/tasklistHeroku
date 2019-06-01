@@ -38,12 +38,12 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
 
 
 $app->get('/db/', function() use($app) {
-  $st = $app['pdo']->prepare('SELECT id,tarea FROM tareas');
+  $st = $app['pdo']->prepare('SELECT id,nombre FROM mytask');
   $st->execute();
 
   $names = array();
   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['tarea']);
+    $app['monolog']->addDebug('Row ' . $row['nombre']);
     $names[] = $row;
   }
 

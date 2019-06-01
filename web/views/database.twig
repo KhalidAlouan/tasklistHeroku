@@ -6,7 +6,7 @@
 	<input type="submit" value="Insertar">
 </form>
 {% for i in id %}
-  <li> {{ i.tarea }} <a href="/db/{{ i.id }}">Eliminar</a> </li>
+  <li> {{ i.nombre }} <a href="/db/{{ i.id }}">Eliminar</a> </li>
 {% else %}
   <li>Nameless!</li>
 {% endfor %}
